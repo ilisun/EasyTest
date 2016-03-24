@@ -1,0 +1,25 @@
+- if @post.errors.any?
+  #error_explanation
+    h2 = pluralize(@post.errors.count, "error")
+    ul
+      - @post.errors.full_messages.each do |msg|
+        li = msg
+
+= form_for @post do |f|
+  .form-group
+    = f.label :title, 'Title'
+    = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label :body, 'Body'
+    = f.text_area :body, class: 'form-control', rows: '10'
+  .form-group
+    = f.label :tag_list, 'Tags (separated by commas)'
+    = f.text_field :tag_list, class: 'form-control'
+  .form-group
+    = f.label :publish, 'Publish'
+    br = f.select :publish, [['yes', true], ['no', false]], class: 'form-control'
+  - if !@post.new_record?
+    .form-group
+      = f.label :created_at, 'Created At'
+      br = f.datetime_select :created_at, class: 'form-control'
+  = f.submit 'Create', class: 'btn btn-primary'

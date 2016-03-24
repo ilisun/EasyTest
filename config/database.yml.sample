@@ -1,0 +1,14 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: deployer
+  password: Qwerty12
+  pool: 5
+
+development:
+  <<: *default
+  database: easy_test_devdb
+
+test:
+  <<: *default
+  database: easy_test_testdb

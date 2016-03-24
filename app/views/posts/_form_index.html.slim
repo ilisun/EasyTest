@@ -1,0 +1,20 @@
+- @posts.each do |post|
+  h2
+    = link_to post.title, post
+  p
+    = post.body.truncate(250)
+  - if post.tags.present?
+    - post.tag_list.map do |tag|
+      = link_to tag, tag_path(tag), class: 'btn btn-info btn-xs tag'
+  p
+    .text-right
+      | #{post.user.email} - #{timeago_tag post.created_at, date_only: false, format: "%B %d, %Y at %H:%M"}
+  p
+    .text-right
+      - if can?(:destroy, post)
+        = link_to 'delete', post, class: 'btn btn-link', method: :delete, data: {confirm: "Are you sure?"}
+      - if can?(:update, post)
+        = link_to 'edit', edit_post_path(post), class: 'btn btn-lin'
+  hr
+  .text-center
+    = paginate @posts

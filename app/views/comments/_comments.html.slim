@@ -1,0 +1,11 @@
+- @post.comments.each do |comment|
+  blockquote class='blockquote'
+    p
+      = comment.body
+    footer
+      | #{comment.user.email} - #{timeago_tag comment.created_at, date_only: false, format: "%B %d, %Y at %H:%M"}
+      - if comment.ensure_can_change?
+        - if can?(:destroy, comment)
+          = link_to 'delete', post_comment_path(comment.post, comment), class: 'btn btn-link', method: :delete, data: {confirm: "Are you sure?"}
+        - if can?(:update, comment)
+          = link_to 'edit', edit_post_comment_path(comment.post, comment), class: 'btn btn-link'

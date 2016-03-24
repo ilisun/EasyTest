@@ -1,0 +1,11 @@
+#tag_cloud
+  - tag_cloud Post.tag_counts, %w[s m l] do |tag, css_class|
+    = link_to tag.name, tag_path(tag.name), class: css_class
+br
+.jumbotron
+  h1 All posts (#{@posts.count})
+  = render 'posts/form_index'
+
+
+
+

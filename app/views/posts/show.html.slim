@@ -1,0 +1,19 @@
+.jumbotron
+  h1
+    = @post.title
+  p
+    = @post.body
+  p
+    .text-right
+      | #{@post.user.email} - #{timeago_tag @post.created_at, date_only: false, format: "%B %d, %Y at %H:%M"}
+  p
+    .text-right#post-link
+      - if can?(:create, Comment)
+        = link_to 'add comment', new_post_comment_path(@post)
+      - if can?(:destroy, @post)
+        = link_to 'delete', @post, class: 'btn btn-link', method: :delete, data: {confirm: "Are you sure?"}
+      - if can?(:update, @post)
+        = link_to 'edit', edit_post_path(@post), class: 'btn btn-link'
+  hr
+  .comments
+    = render 'comments/comments'

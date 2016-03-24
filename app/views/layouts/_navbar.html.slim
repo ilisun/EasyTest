@@ -1,0 +1,33 @@
+.navbar.navbar-default role="navigation"
+  .container-fluid
+    .navbar-header
+      button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand href="#" EasyTest
+    .navbar-collapse.collapse
+      ul.nav.navbar-nav.navbar-right
+        li
+          = link_to 'Posts', posts_path
+        li
+          = link_to 'New post', new_post_path
+        li
+          = link_to 'My posts', my_posts_posts_path
+        - unless user_signed_in?
+          li
+            = link_to "Sign Up", new_user_registration_path
+          li
+            = link_to "Log In", new_user_session_path
+        - else
+          li
+            a[href="#" data-toggle="dropdown"]
+              |  #{current_user.email}
+              span.caret
+            ul.dropdown-menu
+              /li
+              /  = link_to 'Profile', user_path(current_user)
+              li
+                = link_to 'Sign out', destroy_user_session_path, method: :delete
+
