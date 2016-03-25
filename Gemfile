@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.2.0'
 gem 'rails', '4.2.4'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -17,6 +18,8 @@ gem 'devise'
 gem 'cancancan'
 gem 'kaminari'
 gem 'acts-as-taggable-on', '~> 3.4'
+
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'byebug'
