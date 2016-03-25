@@ -1,6 +1,6 @@
 ready = ->
-  $('#slider .sl').hide()
-  $('#slider .sl:first-child').show()
+  $('#slider > .sl').hide()
+  $('#slider > .sl:nth-child(1)').show()
   counter = 0
   images = $('#slider > .sl').length
 
@@ -28,4 +28,7 @@ ready = ->
       $('#slider > .sl:nth-child(3)').fadeIn()
 
 $ ->
+  ready()
+
+$(document).on "page:update", ->
   ready()
