@@ -1,0 +1,41 @@
+.slider-container {
+  padding: 20px 40px 20px 40px;
+}
+
+.slider-container img {
+  width: 100%;
+}
+
+.caption {
+  position: relative;
+  margin-left: 20px;
+  margin-right: 20px;
+  bottom: 100px;
+  border-radius: 5px;
+  background:rgba(0,0,0,0.5);
+  height: 70px;
+}
+
+.pointer-block {
+  float: left;
+
+}
+
+.text-block {
+  float: left;
+  font-size: 24px;
+  color: white;
+
+}
+
+.button-block {
+  float: left;
+}
+.my-btn {
+  background:rgba(255,5,0,1);
+  background: linear-gradient(to top, #fefcea, #f1da36);
+  padding: 20px 20px 20px 20px;
+}
+.button-block a {
+
+}

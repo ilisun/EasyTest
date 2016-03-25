@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'statics/index'
+
   devise_for :users
 
   root to: 'posts#index'
@@ -9,6 +11,8 @@ Rails.application.routes.draw do
     end
     resources :comments
   end
+
+  resources :statics
 
   get 'tags/:tag', to: 'posts#index', as: :tag
 end
