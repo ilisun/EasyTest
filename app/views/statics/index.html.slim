@@ -1,11 +1,17 @@
 .slider-container
-  .slide
-    = image_tag("sl1.jpg", alt: "Slide 1", id: "img1")
+  #slider
+    = image_tag("sl1.jpg", alt: "Slide 1", class: "sl")
+    = image_tag("sl2.jpg", alt: "Slide 2", class: "sl")
+    = image_tag("sl3.jpg", alt: "Slide 3", class: "sl")
     .caption
-      /.pointer-block
-      /  | dsnajf
-      /.text-block
-      /  | Фотографиям вашего ребенка позавидуют даже звезды
-      /.button-block
-      /  a href="#" class="my-btn" НАЧАТЬ ОБУЧЕНИЕ >>
-  /= image_tag("sl2.jpg", alt: "Slide 1", id: "img2")
+      .row
+        .col-sm-2
+          .point
+            a href="#" id="prev" <<
+            a href="#" id="next" >>
+        .col-sm-5
+          .text-block
+            | Фотографиям вашего ребенка позавидуют даже звезды
+        .col-sm-5
+          .button-block
+            a href="#" НАЧАТЬ ОБУЧЕНИЕ >>
